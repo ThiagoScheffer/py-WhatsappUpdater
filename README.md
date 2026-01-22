@@ -24,4 +24,4 @@ type
 
 ## Application Screenshots
 
-![Application Screenshot](media/pywhatsup.png)
+![Application Screenshot](pywhatsup.png)
