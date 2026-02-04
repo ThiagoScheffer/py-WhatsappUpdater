@@ -7,6 +7,10 @@ It supports two install methods:
 **winget (recommended)** — installs the newest version automatically
 **Direct MSIX install** — downloads the latest `.msixbundle` + dependencies and installs using PowerShell
 
+** added auto - if nothing is typed in ;)
+
+## Fixes
+- 05.02.26 - fixed the delete folder error - using the correct shutil.rmtree, and not remove or rmdir
 
 
 ## Requirements

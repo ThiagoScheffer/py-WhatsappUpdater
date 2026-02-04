@@ -243,11 +243,11 @@ def main():
         sys.exit(1)
 
     download_dir = Path(os.environ.get("TEMP", ".")) / "WhatsApp_Install"
-
+   # print(download_dir)
     try:
         if os.path.exists(download_dir):
-            os.remove(download_dir)
-            print("cleaning old folder...")
+           shutil.rmtree(download_dir)
+        print("cleaning old folder...")
     except Exception as e:
         log(f"\n ERROR: {e}")
 
@@ -268,6 +268,12 @@ def main():
                 install_with_winget()
             except Exception as e:
                 log(f"winget method failed.. ({e})")
+
+        if ARGSTART == "":
+            try:
+                install_direct(download_dir)
+            except Exception as e:
+                log(f"direct method failed.. ({e})")
 
     except Exception as e:
         log(f"\n ERROR: {e}")
