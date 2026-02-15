@@ -3,6 +3,7 @@ import re
 import sys
 import shutil
 import subprocess
+import urllib
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
@@ -34,7 +35,7 @@ DEPENDENCY_KEYWORDS = [
     "Microsoft.WindowsAppRuntime",
 ]
 
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+USER_AGENT = "User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
 
 
 def log(msg: str):
@@ -94,10 +95,13 @@ def post_rg_adguard(product_url: str) -> list[tuple[str, str]]:
         data=body,
         headers={
             "User-Agent": USER_AGENT,
+            "Accept": "*/*",
             "Content-Type": "application/x-www-form-urlencoded",
-        }
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://store.rg-adguard.net/",
+        }    )
 
-    )
+    print(req.data, flush=True)
     print("requrl: ",req.get_full_url())
 
     with urlopen(req, timeout=60) as r:

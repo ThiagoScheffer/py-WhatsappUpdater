@@ -8,10 +8,11 @@ It supports two install methods:
 **Direct MSIX install** — downloads the latest `.msixbundle` + dependencies and installs using PowerShell
 
 ** added auto - if nothing is typed in ;)
+**added git action..exe
 
 ## Fixes
 - 05.02.26 - fixed the delete folder error - using the correct shutil.rmtree, and not remove or rmdir
-
+- 14.02.26 - api cant get cloulflare - bypass? maybe...
 
 ## Requirements
 
